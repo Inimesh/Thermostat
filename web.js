@@ -10,6 +10,16 @@ app.get('/temperature', (req, res) => {
   res.send(thermostat.getTemperature().toString());
 })
 
+app.post('/up', (req, res) => {
+  thermostat.up();
+  res.send('Temperature incremented')
+});
+
+app.post('/down', (req, res) => {
+  thermostat.down();
+  res.send('Temperature decremented')
+})
+
 
 console.log(`Listening on port: ${port}`);
 app.listen(port);
