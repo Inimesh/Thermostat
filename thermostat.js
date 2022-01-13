@@ -11,7 +11,6 @@ class Thermostat {
   setCity(city) {
     this.weather.fetchWeatherData(city, (data) => {
       this.temperature = data.main.temp;
-      console.log(this.getTemperature())
     })
   }
 
@@ -53,7 +52,5 @@ class Thermostat {
 
 }
 
-const thermostat = new Thermostat();
-thermostat.setCity('London');
-
- module.exports = Thermostat;
+export { Thermostat };
+//  module.exports = Thermostat;
