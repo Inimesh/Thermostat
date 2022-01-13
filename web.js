@@ -7,22 +7,22 @@ const port = 3000;
 const thermostat = new Thermostat();
 
 app.get('/temperature', (req, res) => {
-  res.send(thermostat.getTemperature().toString());
+  res.send(`Temperature: ${thermostat.getTemperature()}`);
 })
 
 app.post('/up', (req, res) => {
   thermostat.up();
-  res.send('Temperature incremented')
+  res.send(`Temperature: ${thermostat.getTemperature()}`);
 });
 
 app.post('/down', (req, res) => {
   thermostat.down();
-  res.send('Temperature decremented')
+  res.send(`Temperature: ${thermostat.getTemperature()}`);
 })
 
 app.delete('/temperature', (req, res) => {
   thermostat.reset();
-  res.send('Temperature reset')
+  res.send(`Temperature reset\nTemperature: ${thermostat.getTemperature()}`);
 })
 
 
